@@ -7,6 +7,7 @@
   text-transform: uppercase;
   width: 680px;
   font-weight: 700;
+  font-size: 4.5rem;
   margin: 265px auto 0;
 }
 
@@ -25,11 +26,11 @@
 
 @media (max-width: 1199px) {
   .u-section-1 .u-sheet-1 {
-    min-height: 660px;
+    min-height: 585px;
   }
 
-  .u-section-1 .u-text-1 {
-    font-size: 4.5rem;
+  .u-section-1 .u-btn-1 {
+    margin-bottom: 30px;
   }
 }
 
@@ -102,10 +103,6 @@
   margin: 20px 0 0;
 }
 
-.u-section-2 .u-btn-1 {
-  margin: 20px 0 0;
-}
-
 @media (max-width: 1199px) {
   .u-section-2 .u-sheet-1 {
     min-height: 26px;
@@ -122,6 +119,10 @@
 
   .u-section-2 .u-layout-cell-2 {
     min-height: 346px;
+  }
+
+  .u-section-2 .u-text-1 {
+    margin-top: 51px;
   }
 }
 
