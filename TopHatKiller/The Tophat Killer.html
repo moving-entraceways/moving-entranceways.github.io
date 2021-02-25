@@ -98,44 +98,94 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking">Your browser lacks required capabilities. Please upgrade it or switch to another to continue.</div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="The Tophat Killer" startnode="11" creator="Twine" creator-version="2.3.13" ifid="B1BB5E75-8789-4158-8865-E7F721ACA668" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="412,186" size="100,100">You enter a building
+	<tw-storydata name="The Tophat Killer" startnode="11" creator="Twine" creator-version="2.3.13" ifid="B1BB5E75-8789-4158-8865-E7F721ACA668" zoom="1" format="SugarCube" format-version="2.34.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.redb button {
+  background-color:red;
+}
+.greenb button {
+  background-color:green;
+}
+
+.btn button {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 20px;
+  background: #222629;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #858585;
+  text-decoration: none;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="399,178" size="100,100">You enter a building
 &lt;&lt;audio firstChoices play&gt;&gt;
 
-
+&lt;&lt;if $firstPlay&gt;&gt;
+&lt;&lt;timed 63s&gt;&gt;
 [[Elevator]]
 [[Stairs]]
-[[Wait for backup]]</tw-passagedata><tw-passagedata pid="2" name="Elevator" tags="" position="265,300" size="100,100">&lt;&lt;masteraudio stop&gt;&gt;
+[[Wait for backup]]
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;button [[Elevator|Elevator]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button [[Stairs|Stairs]]&gt;&gt; &lt;&lt;/button&gt;&gt;  &lt;&lt;button[[Wait for backup|Wait for backup]]&gt;&gt;&lt;&lt;/button&gt;&gt; 
+&lt;&lt;/if&gt;&gt;
+
+
+</tw-passagedata><tw-passagedata pid="2" name="Elevator" tags="" position="266,300" size="100,100">&lt;&lt;audio firstChoices stop&gt;&gt;
 &lt;&lt;audio elevator play goto [[BAD END]]&gt;&gt;
 You take the elevator
 
-</tw-passagedata><tw-passagedata pid="3" name="Stairs" tags="" position="420,302" size="100,100">&lt;&lt;masteraudio stop&gt;&gt;
+</tw-passagedata><tw-passagedata pid="3" name="Stairs" tags="" position="419,305" size="100,100">&lt;&lt;audio firstChoices stop&gt;&gt;
 &lt;&lt;audio stairsAlone play&gt;&gt;
+&lt;&lt;if $firstPlay&gt;&gt;
+&lt;&lt;timed 50s&gt;&gt;
 You see junky Joe
 He tells you theres a key you need and its in room 2
 Confusingly, the narrator tells you he said room 1. Who do you trust?
-[[Door 1]]
-[[Door 2]]</tw-passagedata><tw-passagedata pid="4" name="Wait for backup" tags="" position="602,302" size="100,100">&lt;&lt;masteraudio stop&gt;&gt;
+&lt;&lt;button[[Door 1]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button[[Door 2]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;else&gt;&gt;
+You see junky Joe
+He tells you theres a key you need and its in room 2
+Confusingly, the narrator tells you he said room 1. Who do you trust?
+&lt;&lt;button[[Door 1]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button[[Door 2]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+
+</tw-passagedata><tw-passagedata pid="4" name="Wait for backup" tags="" position="605,294" size="100,100">&lt;&lt;audio firstChoices stop&gt;&gt;
 
 &lt;&lt;set $wait to true&gt;&gt;
 
 &lt;&lt;audio backUp play&gt;&gt;
+You wait for backup.
 
-Your partner arrives
-[[Door 1]]
-[[Door 2]]</tw-passagedata><tw-passagedata pid="5" name="BAD END" tags="" position="256,896" size="100,100">&lt;&lt;masteraudio stop&gt;&gt;
-&lt;&lt;audio doorLocked play&gt;&gt;
-You cannot get through the door. Mission failed</tw-passagedata><tw-passagedata pid="6" name="Door 1" tags="" position="358,494" size="100,100">&lt;&lt;masteraudio stop&gt;&gt;
+&lt;&lt;if $firstPlay&gt;&gt;
+&lt;&lt;timed 55s&gt;&gt;
+What room do you inspect first?
+&lt;&lt;button[[Door 1]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button[[Door 2]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;else&gt;&gt;
+What room do you inspect first?
+&lt;&lt;button[[Door 1]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button[[Door 2]]&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="5" name="BAD END" tags="" position="256,896" size="100,100">&lt;&lt;audio doorLocked play&gt;&gt;
+You cannot get through the door. Mission failed</tw-passagedata><tw-passagedata pid="6" name="Door 1" tags="" position="358,494" size="100,100">&lt;&lt;audio stairsAlone stop&gt;&gt;
+&lt;&lt;audio backUp stop&gt;&gt;
 &lt;&lt;audio door1 play goto [[BAD END]]&gt;&gt;
 You run through door 1. There is nothing of notice in the room
 you run up the stairs towards the roof
-</tw-passagedata><tw-passagedata pid="7" name="Betrayal Ending" tags="" position="600,897" size="100,100">&lt;&lt;masteraudio stop&gt;&gt;
+</tw-passagedata><tw-passagedata pid="7" name="Betrayal Ending" tags="" position="600,897" size="100,100">&lt;&lt;audio doorUnlocked stop&gt;&gt;
 &lt;&lt;audio twistEnd play&gt;&gt;
 
 You make it to the roof with the Tophat Killer
 &lt;&lt;timed 45s&gt;&gt;
 Your partner has been in kahoots with the Tophat Killer. You have been shot. You failed your mission
 &lt;&lt;/timed&gt;&gt;
-</tw-passagedata><tw-passagedata pid="8" name="Door 2" tags="" position="538,499" size="100,100">&lt;&lt;masteraudio stop&gt;&gt;
+</tw-passagedata><tw-passagedata pid="8" name="Door 2" tags="" position="538,499" size="100,100">&lt;&lt;audio stairsAlone stop&gt;&gt;
+&lt;&lt;audio backUp stop&gt;&gt;
 &lt;&lt;audio door2 play goto [[Get To Roof]]&gt;&gt;
 You run through door two and find a key.
 
@@ -146,7 +196,8 @@ You run through door two and find a key.
 &lt;&lt;timed 30s&gt;&gt;
 The Tophat Killer is dead. 
 
-Well done, Detective Johnston</tw-passagedata><tw-passagedata pid="10" name="StoryInit" tags="" position="274,58" size="100,100">&lt;&lt;cacheaudio &quot;firstChoices&quot; &quot;audio/Hat kill first options.mp3&quot;&gt;&gt;
+Well done, Detective Johnston
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="StoryInit" tags="" position="274,58" size="100,100">&lt;&lt;cacheaudio &quot;firstChoices&quot; &quot;audio/Hat kill first options.mp3&quot;&gt;&gt;
 
 &lt;&lt;cacheaudio &quot;elevator&quot; &quot;audio/3 Options/Elevator.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;backUp&quot; &quot;audio/3 Options/backUp.mp3&quot;&gt;&gt;
@@ -161,8 +212,16 @@ Well done, Detective Johnston</tw-passagedata><tw-passagedata pid="10" name="Sto
 &lt;&lt;cacheaudio &quot;twistEnd&quot; &quot;audio/Sad twist ending.mp3&quot;&gt;&gt;
 &lt;&lt;cacheaudio &quot;happyEnd&quot; &quot;audio/Happy Ending.mp3&quot;&gt;&gt;
 
-&lt;&lt;set $wait to false&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Loadscreen" tags="" position="409,62" size="100,100">Welcome Det. Johnston.
-When you are ready click [[here|Start]] to begin your mission.</tw-passagedata><tw-passagedata pid="12" name="Get To Roof" tags="" position="520,651" size="100,100">&lt;&lt;audio doorUnlocked play&gt;&gt;
+&lt;&lt;waitforaudio&gt;&gt;
+
+&lt;&lt;set $wait to false&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Loadscreen" tags="menuscreen" position="409,62" size="100,100">Welcome Det. Johnston.
+
+If this is your first run through click &lt;&lt;link [[here|Start]]&gt;&gt;&lt;&lt;set $firstPlay to true&gt;&gt;&lt;&lt;/link&gt;&gt; to begin your mission.
+
+
+If you have played before click click &lt;&lt;link [[here|Start]]&gt;&gt;&lt;&lt;set $firstPlay to false&gt;&gt;&lt;&lt;/link&gt;&gt; to try your mission again.
+
+</tw-passagedata><tw-passagedata pid="12" name="Get To Roof" tags="" position="520,651" size="100,100">&lt;&lt;audio doorUnlocked play&gt;&gt;
 The key fits and the door opens
 &lt;&lt;timed 14s&gt;&gt;
 &lt;&lt;if $wait&gt;&gt;
