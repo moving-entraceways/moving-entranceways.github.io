@@ -297,16 +297,24 @@ Cross fade styling
 	});
 
 	setup.crossfade = crossfade;
-})();</script><tw-passagedata pid="1" name="Start" tags="" position="416,185" size="100,100">&lt;&lt;nobr&gt;&gt;
+})();</script><tw-passagedata pid="1" name="Start" tags="" position="416,184" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio firstChoices play&gt;&gt;
 
-&lt;&lt;crossfadecontainer &quot;firstChoices&quot; &quot;images/darkfactory4.png&quot;&gt;&gt;
+&lt;&lt;crossfadecontainer &quot;firstChoices&quot; &quot;images/Detective_Beginning.png&quot;&gt;&gt;
+
+&lt;&lt;timed 12s&gt;&gt;
+	&lt;&lt;crossfade &quot;firstChoices&quot; &quot;images/darkfactory4.png&quot;&gt;&gt;	
+&lt;&lt;/timed&gt;&gt;
+
+
+&lt;&lt;timed 30s&gt;&gt;
+	&lt;&lt;crossfade &quot;firstChoices&quot; &quot;images/Detective_Beginning2.png&quot;&gt;&gt;	
+&lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 45s&gt;&gt;
-
-	&lt;&lt;crossfade &quot;firstChoices&quot; &quot;images/stairsorelevator2.5.png&quot;&gt;&gt;
-	
+	&lt;&lt;crossfade &quot;firstChoices&quot; &quot;images/stairsorelevator2.5.png&quot;&gt;&gt;	
 &lt;&lt;/timed&gt;&gt;
+
 &lt;div class=&quot;message centredtext&quot;&gt; 
 &lt;&lt;if $firstPlay&gt;&gt;
 
@@ -324,11 +332,13 @@ Cross fade styling
 
 &lt;/div&gt; 
 &lt;&lt;/nobr&gt;&gt;
-&lt;div class=&quot;message&quot;&gt; 
-You enter a building
-&lt;/div&gt; 
 
+&lt;div class=&quot;message centredtext&quot;&gt; You are Detective Johnston. You have tracked the Tophat Killer to an abandoned warehouse. 
 
+&lt;&lt;timed 45s&gt;&gt;  Will you take the elevator to the top floor?
+Will you take the stairs and look for more clues?
+Will you wait for back-up?&lt;&lt;/timed&gt;&gt;
+&lt;/div&gt;
 
 
 
@@ -337,14 +347,14 @@ You enter a building
 </tw-passagedata><tw-passagedata pid="2" name="Elevator" tags="" position="266,300" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio firstChoices stop&gt;&gt;
 
-&lt;&lt;crossfadecontainer &quot;stairsalone&quot; &quot;images/stairsorelevator2.5.png&quot;&gt;&gt;
+&lt;&lt;crossfadecontainer &quot;elevator&quot; &quot;images/stairsorelevator2.5.png&quot;&gt;&gt;
 &lt;&lt;timed 12s&gt;&gt;
-	&lt;&lt;crossfade &quot;stairsalone&quot; &quot;images/insideelevator.png&quot;&gt;&gt;
+	&lt;&lt;crossfade &quot;elevator&quot; &quot;images/insideelevator.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;audio elevator play goto [[BAD END]]&gt;&gt;
-&lt;div class=&quot;message&quot;&gt; You take the elevator
+&lt;div class=&quot;message centredtext&quot;&gt; You take the elevator.
 &lt;/div&gt; 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Stairs" tags="" position="419,305" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="Stairs" tags="" position="419,304" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio firstChoices stop&gt;&gt;
 &lt;&lt;audio stairsAlone play&gt;&gt;
 
@@ -358,22 +368,24 @@ You enter a building
 &lt;&lt;timed 40s&gt;&gt;
 	&lt;&lt;crossfade &quot;stairsalone&quot; &quot;images/doors2.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;div class=&quot;message&quot;&gt;
+&lt;div class=&quot;message centredtext&quot;&gt;
 &lt;&lt;if $firstPlay&gt;&gt;
 &lt;&lt;timed 50s&gt;&gt;
 You see junky Joe
-He tells you theres a key you need and its in room 2
+He tells you theres a key you need and its in room 2.
 Confusingly, the narrator tells you he said room 1. Who do you trust?
 &lt;&lt;button[[Door 1]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button[[Door 2]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;else&gt;&gt;
 
-Joe tells you theres a key you need and its in room 2
+Joe tells you theres a key you need and its in room 2.
 Confusingly, the narrator tells you he said room 1. Who do you trust?
 &lt;&lt;button[[Door 1]]&gt;&gt;&lt;&lt;/button&gt;&gt; &lt;&lt;button[[Door 2]]&gt;&gt;&lt;&lt;/button&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
 &lt;&lt;/nobr&gt;&gt;
+
+&lt;div class=&quot;message centredtext&quot;&gt;You take the stairs alone. &lt;&lt;timed 15s&gt;&gt;You run into Joe, a nefarious crominal who is hiding in the building.&lt;&lt;/timed&gt;&gt;&lt;/div&gt;
 
 
 </tw-passagedata><tw-passagedata pid="4" name="Wait for backup" tags="" position="606,294" size="100,100">&lt;&lt;nobr&gt;&gt;
@@ -386,9 +398,12 @@ Confusingly, the narrator tells you he said room 1. Who do you trust?
 	&lt;&lt;crossfade &quot;waiting&quot; &quot;images/OtherDetective.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;timed 23s&gt;&gt;
-	&lt;&lt;crossfade &quot;waiting&quot; &quot;images/stairs.png&quot;&gt;&gt;
+	&lt;&lt;crossfade &quot;waiting&quot; &quot;images/stair.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;timed 53s&gt;&gt;
+&lt;&lt;timed 29s&gt;&gt;
+	&lt;&lt;crossfade &quot;waiting&quot; &quot;images/escape4.png&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 50s&gt;&gt;
 	&lt;&lt;crossfade &quot;waiting&quot; &quot;images/doors2.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
@@ -404,8 +419,13 @@ Confusingly, the narrator tells you he said room 1. Who do you trust?
 &lt;/div&gt; 
 &lt;&lt;/nobr&gt;&gt;
 
-&lt;div class=&quot;message&quot;&gt; TEST TEXT&lt;/div&gt; 
-</tw-passagedata><tw-passagedata pid="5" name="BAD END" tags="" position="222,877" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;div class=&quot;message centredtext&quot;&gt; You wait for backup.
+&lt;&lt;timed 8s&gt;&gt;Your partner Frankie arrives. You take the stairs up through the building.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 29s&gt;&gt;Frankie sees a figure escape through the fire exit. You should be vigilant and inspect some of the rooms.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 50s&gt;&gt;There are two doors ahead of you. What room will you inspect first?&lt;&lt;/timed&gt;&gt;
+
+&lt;/div&gt; 
+</tw-passagedata><tw-passagedata pid="5" name="BAD END" tags="" position="222,876" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio doorLocked play&gt;&gt;
 
 &lt;&lt;crossfadecontainer &quot;lockeddoor&quot; &quot;images/lockeddoor.png&quot;&gt;&gt;
@@ -418,8 +438,8 @@ Ending One of Three.
 &lt;&lt;/timed&gt;&gt;
 &lt;/div&gt; 
 &lt;&lt;/nobr&gt;&gt;
-&lt;div class=&quot;message&quot;&gt; You see a door ahead of you.
-&lt;/div&gt; 
+&lt;div class=&quot;message centredtext&quot;&gt; You see a door ahead of you. 
+It is locked. &lt;/div&gt; 
 </tw-passagedata><tw-passagedata pid="6" name="Door 1" tags="" position="358,494" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio stairsAlone stop&gt;&gt;
 &lt;&lt;audio backUp stop&gt;&gt;
@@ -429,20 +449,25 @@ Ending One of Three.
 &lt;&lt;timed 12s&gt;&gt;
 	&lt;&lt;crossfade &quot;choosedoor2&quot; &quot;images/stairs.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
 
-&lt;div class=&quot;message&quot;&gt; You run through door 1. There is nothing of notice in the room
-you run up the stairs towards the roof
+&lt;div class=&quot;message centredtext&quot;&gt; You run through door 1. 
+&lt;&lt;timed 5s&gt;&gt;There is nothing of notice in the room.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 12s&gt;&gt;You hear a scream and make your way to the top of the building.&lt;&lt;/timed&gt;&gt;
 &lt;/div&gt; 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Betrayal Ending" tags="" position="606,872" size="100,100">&lt;&lt;nobr&gt;&gt;
+</tw-passagedata><tw-passagedata pid="7" name="Betrayal Ending" tags="" position="606,872" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio twistEnd play&gt;&gt;
 
 &lt;&lt;crossfadecontainer &quot;twistend&quot; &quot;images/shotringsout2.png&quot;&gt;&gt;
-&lt;&lt;timed 37s&gt;&gt;
+&lt;&lt;timed 15s&gt;&gt;
+	&lt;&lt;crossfade &quot;twistend&quot; &quot;images/aftershot.png&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 30s&gt;&gt;
 	&lt;&lt;crossfade &quot;twistend&quot; &quot;images/youredead.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
 &lt;div class=&quot;message centredtext&quot;&gt; 
-&lt;&lt;timed 9s&gt;&gt;
+&lt;&lt;timed 40s&gt;&gt;
 MISSION FAILED.
 Ending Three of Three.
 &lt;&lt;link &quot;Back to main menu&quot; &quot;Loadscreen&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -450,8 +475,12 @@ Ending Three of Three.
 &lt;/div&gt; 
 &lt;&lt;/nobr&gt;&gt;
 
-&lt;div class=&quot;message&quot;&gt; 
-You get betrayed
+&lt;div class=&quot;message centredtext&quot;&gt; 
+A shot rings out...
+
+&lt;&lt;timed 15s&gt;&gt;You have been betrayed by your partner.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 30s&gt;&gt;You have died.&lt;&lt;/timed&gt;&gt;
+
 &lt;/div&gt; </tw-passagedata><tw-passagedata pid="8" name="Door 2" tags="" position="538,499" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;&lt;audio stairsAlone stop&gt;&gt;
 &lt;&lt;audio backUp stop&gt;&gt;
@@ -464,10 +493,12 @@ You get betrayed
 &lt;&lt;timed 13s&gt;&gt;
 	&lt;&lt;crossfade &quot;choosedoor2&quot; &quot;images/stairs.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-
-&lt;div class=&quot;message&quot;&gt; Choose door 2
+&lt;&lt;/nobr&gt;&gt;
+&lt;div class=&quot;message centredtext&quot;&gt; You go through door 2.
+&lt;&lt;timed 5s&gt;&gt;You find a key.&lt;&lt;/timed&gt;&gt;
+&lt;&lt;timed 13s&gt;&gt;You hear a scream and go up the stairs to the top of the building.&lt;&lt;/timed&gt;&gt;
 &lt;/div&gt; 
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="GOOD END" tags="" position="381,876" size="100,100">&lt;&lt;nobr&gt;&gt;
+</tw-passagedata><tw-passagedata pid="9" name="GOOD END" tags="" position="381,876" size="100,100">&lt;&lt;nobr&gt;&gt;
 
 &lt;&lt;audio happyEnd play&gt;&gt;
 &lt;&lt;crossfadecontainer &quot;shotringsout2&quot; &quot;images/shotringsout2.png&quot;&gt;&gt;
@@ -482,8 +513,10 @@ Ending Two of Three.
 &lt;/div&gt; 
 &lt;&lt;/nobr&gt;&gt;
 
-&lt;div class=&quot;message&quot;&gt; You see a door ahead of you. The Key Fits.
-You find yourself on the rood with the Tophat Killer
+&lt;div class=&quot;message centredtext&quot;&gt; A shot rings out...
+&lt;&lt;timed 9s&gt;&gt;
+You have killed the Tophat Killer and saved the victim.
+&lt;&lt;/timed&gt;&gt;
 &lt;/div&gt; 
 
 </tw-passagedata><tw-passagedata pid="10" name="StoryInit" tags="" position="274,58" size="100,100">&lt;&lt;cacheaudio &quot;firstChoices&quot; &quot;audio/Hat kill first options_short.mp3&quot;&gt;&gt;
@@ -524,10 +557,13 @@ You find yourself on the rood with the Tophat Killer
 &lt;&lt;timed 5s&gt;&gt;
 	&lt;&lt;crossfade &quot;gettoroof&quot; &quot;images/tophatkiller.png&quot;&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-
-&lt;div class=&quot;message&quot;&gt; You get to the roof
-&lt;/div&gt; 
 &lt;&lt;/nobr&gt;&gt;
+&lt;div class=&quot;message centredtext&quot;&gt; You get to a door. The key fits.
+&lt;&lt;timed 5s&gt;&gt;
+	You come face to face with the Tophat Killer
+&lt;&lt;/timed&gt;&gt;
+&lt;/div&gt; 
+
 
 </tw-passagedata><tw-passagedata pid="13" name="StoryCaption" tags="" position="167,59" size="100,100">You are Detective Johnston. You are hot on the trail of the Tophat Killer, a serial killer who has been evading you at every turn.
 
@@ -539,7 +575,7 @@ Good luck, Detective.</tw-passagedata><tw-passagedata pid="14" name="About" tags
 !The Tophat Killer
 
 In this audio interactive fiction adventure you are Detective Johnston.
-Beign your mission with audio on and be guided through the story. You will be presented with choices and the decsions you make will impact how the story unfolds.
+Begin your mission with audio on and be guided through the story. You will be presented with choices and the decisions you make will impact how the story unfolds.
 
 
 You are hot on the trail of the Tophat Killer, a serial killer who has been evading you at every turn.
@@ -560,6 +596,7 @@ Eoin O&#39;Sullivan
 
 !! Story
 Moving Entranceways - Eoin O&#39;Sullivan. Martin Bare. Sarah McGillion.
+Dialogue is entirely improvised.
 
 !! Vocal Talents
 Narrator - Sarah McGillion
@@ -578,7 +615,7 @@ Images converted via machine learning method called &quot;Style Transfer&quot;. 
 &lt;/div&gt;
 
 </tw-passagedata><tw-passagedata pid="16" name="Contact" tags="landingpage" position="788,38" size="100,100">
-&lt;div class=&quot;message&quot;&gt;If you have any questions or feedback please contact moving-entranceways@gmail.com
+&lt;div class=&quot;message&quot;&gt;If you have any questions or feedback please contact movingentranceways@gmail.com
 !!&lt;&lt;link &quot;Go back&quot; &quot;Loadscreen&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
