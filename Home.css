@@ -37,6 +37,14 @@
   padding: 12px 78px 13px;
 }
 
+.u-section-1 .embed-responsive-1 {
+  position: absolute;
+  width: 178%;
+  left: -39%;
+  height: 178%;
+  top: -39%;
+}
+
 @media (max-width: 1199px) {
   .u-section-1 .u-group-2 {
     min-height: 643px;
